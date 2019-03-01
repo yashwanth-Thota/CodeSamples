@@ -1,0 +1,73 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+namespace ConsoleApplication2
+{
+    class Factorials
+    {
+        public static void Main()
+        {
+            int n=10,loop=1;
+            string result = 1;
+            while (n1)
+            {
+                result = string.Join(,Multipy(n.ToString(),result));
+                n--;
+            }
+            Console.WriteLine(result);
+            Console.ReadKey();
+        }
+        public static int CustomFactorial(int n)
+        {
+            int result = 1,c=0;
+            while(c5)
+            {
+                result =  n;
+                n++;
+                c++;
+            }
+            return result;
+        }
+        public static Listint Multipy(string a,string b)
+        {
+            IEnumeratorchar num1;
+            IEnumeratorchar num2;
+            Console.WriteLine(num1 {0} num2 {1},a,b);
+            Listint result = new Listint();
+            num1 = (int.Parse(a)int.Parse(b))a.Reverse().GetEnumerator() b.Reverse().GetEnumerator();
+            num2 = (int.Parse(a)  int.Parse(b))  b.Reverse().GetEnumerator()  a.Reverse().GetEnumerator();
+            int carry = 0,mul=0,i=0;
+            while(num2.MoveNext())
+            {
+                carry = 0;
+                int temp = 0;
+                while (num1.MoveNext())
+                {
+                    temp =(int.Parse(num1.Current.ToString())  int.Parse(num2.Current.ToString()))+carry;
+                    result.Insert(0,temp%10);
+                    carry = temp  10;
+                }
+                i++;
+                mul = temp  (int)Math.Pow(10, i) + mul;
+                if (carry != 0) result.Insert(0, carry);
+            }
+            Console.WriteLine(mul);
+            return result;
+        }
+    }
+    public static class Extension
+    {
+        public static char GetNext(this string str,int current)
+        {
+            if(str.HasNext(current))
+            {
+
+            }
+        }
+        public static bool HasNext(this string str,int current)
+        {
+            if (str.Length  current) return true;
+            return false;
+        }
+    }
+}
